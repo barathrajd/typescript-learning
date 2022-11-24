@@ -1,12 +1,16 @@
 // Union Type is pipe symbol |
 // e.g: number | string
 
+// Alias
+type Combinable = number | string;
+type ConversionDescriptor = "as-number" | "as-text";
+
 function combine(
-  input1: number | string,
-  input2: number | string,
+  input1: Combinable,
+  input2: Combinable,
   // Literal Type restriction to the these two types
   resultConversion: "as-number" | "as-text"
-): number | string {
+): Combinable {
   let result;
   // Adding Runtime type checking to solve the confusion for the typescript
   if (
