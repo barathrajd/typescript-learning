@@ -1,33 +1,17 @@
-// const person: {
-//   name: string;
-//   age: number;
-//   hobbies: string[];
-//   role: [number, string];
-// } = {
-//   name: "John",
-//   age: 30,
-//   hobbies: ["Sports", "Coding"],
-//   role: [2, "author"],
-// };
-var Role;
-(function (Role) {
-    Role[Role["ADMIN"] = 0] = "ADMIN";
-    Role[Role["READ_ONLY"] = 1] = "READ_ONLY";
-    Role[Role["AUTHOR"] = 2] = "AUTHOR";
-})(Role || (Role = {}));
-var person = {
-    name: "John",
-    age: 30,
-    hobbies: ["Sports", "Coding"],
-    role: Role.ADMIN
-};
-var favoriteActivities;
-favoriteActivities = ["Sports", 1, false];
-// console.log(person.name);
-for (var _i = 0, _a = person.hobbies; _i < _a.length; _i++) {
-    var hobbie = _a[_i];
-    console.log(hobbie);
+// Union Type is pipe symbol |
+// e.g: number | string
+function combine(input1, input2) {
+    var result;
+    // Adding Runtime type checking to solve the confusion for the typescript
+    if (typeof input1 === "number" && typeof input2 === "number") {
+        result = input1 + input2;
+    }
+    else {
+        result = input1.toString() + input2.toString();
+    }
+    return result;
 }
-if (person.role === Role.ADMIN) {
-    console.log("is admin");
-}
+var combinedAges = combine(20, 30);
+var combinedName = combine("Barathraj", "D");
+console.log(combinedAges);
+console.log(combinedName);

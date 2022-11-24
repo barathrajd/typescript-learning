@@ -1,37 +1,22 @@
-// const person: {
-//   name: string;
-//   age: number;
-//   hobbies: string[];
-//   role: [number, string];
-// } = {
-//   name: "John",
-//   age: 30,
-//   hobbies: ["Sports", "Coding"],
-//   role: [2, "author"],
-// };
+// Union Type is pipe symbol |
+// e.g: number | string
 
-enum Role {
-  ADMIN,
-  READ_ONLY,
-  AUTHOR,
+function combine(
+  input1: number | string,
+  input2: number | string
+): number | string {
+  let result;
+  // Adding Runtime type checking to solve the confusion for the typescript
+  if (typeof input1 === "number" && typeof input2 === "number") {
+    result = input1 + input2;
+  } else {
+    result = input1.toString() + input2.toString();
+  }
+  return result;
 }
 
-const person = {
-  name: "John",
-  age: 30,
-  hobbies: ["Sports", "Coding"],
-  role: Role.ADMIN,
-};
+const combinedAges = combine(20, 30);
+const combinedName = combine("Barathraj", "D");
 
-let favoriteActivities: any[];
-favoriteActivities = ["Sports", 1, false];
-
-// console.log(person.name);
-
-for (const hobbie of person.hobbies) {
-  console.log(hobbie);
-}
-
-if (person.role === Role.ADMIN) {
-  console.log("is admin");
-}
+console.log(combinedAges);
+console.log(combinedName);
