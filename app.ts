@@ -1,27 +1,19 @@
-function add(n1: number, n2: number): number {
-  return n1 + n2;
+let userInput: unknown;
+let userName: string;
+
+userInput = 5;
+userInput = "Max";
+
+// Extra type check for the unknown type
+if (typeof userInput === "string") {
+  userName = userInput;
 }
 
-function printResult(num: number): void {
-  console.log("Result: " + num);
-  return;
+// Never produce the value
+function generateError(message: string, code: number): never {
+  throw { message: message, errorCode: code };
 }
 
-function addAndHandle(n1: number, n2: number, cb: (a: number) => void) {
-  const result = n1 + n2;
-  cb(result);
-}
+const result = generateError("An Error occurred", 500);
 
-printResult(add(2, 111));
-
-let combinedValues: (a: number, b: number) => number;
-
-combinedValues = add;
-// combinedValues = printResult
-
-console.log(combinedValues(100, 20));
-
-addAndHandle(10, 20, (res) => {
-  console.log(res);
-  return res;
-});
+console.log(result);

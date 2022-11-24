@@ -1,20 +1,14 @@
-function add(n1, n2) {
-    return n1 + n2;
+var userInput;
+var userName;
+userInput = 5;
+userInput = "Max";
+// Extra type check for the unknown type
+if (typeof userInput === "string") {
+    userName = userInput;
 }
-function printResult(num) {
-    console.log("Result: " + num);
-    return;
+// Never produce the value
+function generateError(message, code) {
+    throw { message: message, errorCode: code };
 }
-function addAndHandle(n1, n2, cb) {
-    var result = n1 + n2;
-    cb(result);
-}
-printResult(add(2, 111));
-var combinedValues;
-combinedValues = add;
-// combinedValues = printResult
-console.log(combinedValues(100, 20));
-addAndHandle(10, 20, function (res) {
-    console.log(res);
-    return res;
-});
+var result = generateError("An Error occurred", 500);
+console.log(result);
