@@ -22,7 +22,7 @@ var person = {
     role: Role.ADMIN
 };
 var favoriteActivities;
-favoriteActivities = ["Sports"];
+favoriteActivities = ["Sports", 1, false];
 // console.log(person.name);
 for (var _i = 0, _a = person.hobbies; _i < _a.length; _i++) {
     var hobbie = _a[_i];
