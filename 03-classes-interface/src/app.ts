@@ -2,7 +2,7 @@ class Department {
   // private id : string
   // public name: string;
   // private is the modifier
-  private employees: string[] = [];
+  protected employees: string[] = [];
 
   constructor(private readonly id: string, public name: string) {
     // this.name = n;
@@ -36,6 +36,14 @@ class AccountingDepartment extends Department {
   constructor(id: string, private reports: string[]) {
     super(id, "Accounting");
   }
+
+  addEmployee(name: string) {
+    if (name === "Barath") {
+      return;
+    }
+    this.employees.push(name);
+  }
+
   addReports(text: string) {
     this.reports.push(text);
   }
@@ -53,7 +61,7 @@ artDepartment.addEmployee("Barath");
 // artDepartment.employees[2] = "Deva";
 // artDepartment.printEmployeeInformation();
 
-const it = new ITDepartments("d2", ["Barathraj"]);
+const it = new ITDepartments("d2", ["Barath"]);
 it.describe();
 console.log(it);
 it.addEmployee("Barath");
@@ -63,4 +71,5 @@ const account = new AccountingDepartment("d3", []);
 account.describe();
 console.log(account);
 account.addReports("report 1");
+account.addEmployee("Raj");
 account.printReports();
