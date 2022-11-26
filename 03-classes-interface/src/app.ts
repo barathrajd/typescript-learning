@@ -1,4 +1,5 @@
 class Department {
+  static fiscalYear = 2020;
   // private id : string
   // public name: string;
   // private is the modifier
@@ -6,6 +7,10 @@ class Department {
 
   constructor(private readonly id: string, public name: string) {
     // this.name = n;
+  }
+
+  static createEmployee(name: string) {
+    return { name: name };
   }
 
   describe(this: Department) {
@@ -78,6 +83,9 @@ artDepartment.addEmployee("Barath");
 // Property Employees is private
 // artDepartment.employees[2] = "Deva";
 // artDepartment.printEmployeeInformation();
+
+const employee1 = Department.createEmployee("Barathraj");
+console.log(employee1);
 
 const it = new ITDepartments("d2", ["Barath"]);
 it.describe();
