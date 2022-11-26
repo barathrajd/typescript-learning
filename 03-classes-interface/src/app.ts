@@ -1,5 +1,16 @@
+// type AddFunction = (a:number, b: number) => number
+interface AddFunction {
+  (a: number, b: number): number;
+}
+
+let add: AddFunction;
+
+add = (n1: number, n2: number) => {
+  return n1 + n2;
+};
+
 interface Named {
-  readonly name: string;
+  readonly name?: string;
 }
 
 interface Greetings extends Named {
@@ -9,13 +20,19 @@ interface Greetings extends Named {
 let user1: Greetings;
 
 class Person implements Greetings {
-  name: string;
+  name?: string;
   age = 23;
-  constructor(name: string) {
-    this.name = name;
+  constructor(name?: string) {
+    if (name) {
+      this.name = name;
+    }
   }
   greet(phrase: string) {
-    console.log(phrase + " " + this.name);
+    if (this.name) {
+      console.log(phrase + " " + this.name);
+    } else {
+      console.log("Hi");
+    }
   }
 }
 
@@ -26,7 +43,7 @@ user1 = {
   },
 };
 
-user1 = new Person("Barath");
+user1 = new Person();
 
 user1.greet("Welcome");
 console.log(user1);
