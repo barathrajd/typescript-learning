@@ -43,4 +43,12 @@ textStorage.addItem("D");
 textStorage.deleteItem("D");
 const numberStorage = new DataStorage();
 numberStorage.addItem(10);
+function createCourseGoal(title, description, date) {
+    let courseGoal = {};
+    courseGoal.title = title;
+    courseGoal.description = description;
+    courseGoal.completeUntil = date;
+    return courseGoal;
+}
+const names = ["barathraj"];
 //# sourceMappingURL=app.js.map
