@@ -38,99 +38,118 @@ function add(a: Combinable, b: Combinable) {
 
 const result = add("Barathraj", " D");
 
-// type UnknownEmployee = Employee | Admin;
+// Optional Chaining
 
-// function printEmployeeInformation(emp: UnknownEmployee) {
-//   console.log("Name: " + emp.name);
-//   if ("privileges" in emp) {
-//     console.log("Privileges: " + emp.privileges);
-//   }
+const fetchedUserData = {
+  id: "u1",
+  name: "Barathraj",
+  job: {
+    title: "Frontend Developer",
+    description: "Working in the React JS and Vannila Javascript",
+  },
+};
 
-//   if ("startDate" in emp) {
-//     console.log("Start Date: " + emp.startDate);
-//   }
-// }
+console.log(fetchedUserData?.job?.title);
 
-// printEmployeeInformation(e1);
-// printEmployeeInformation({ name: "Aravind", startDate: new Date() });
+const userInput1 = "";
 
-// class Car {
-//   drive() {
-//     console.log("Driving...");
-//   }
-// }
+const storedData = userInput1 ?? "DEFAULT";
 
-// class Truck {
-//   drive() {
-//     console.log("Driving a truck...");
-//   }
+console.log(storedData);
 
-//   loadCargo(amount: number) {
-//     console.log("Loading cargo ..." + amount);
-//   }
-// }
+type UnknownEmployee = Employee | Admin;
 
-// type Vehicle = Car | Truck;
+function printEmployeeInformation(emp: UnknownEmployee) {
+  console.log("Name: " + emp.name);
+  if ("privileges" in emp) {
+    console.log("Privileges: " + emp.privileges);
+  }
 
-// const v1 = new Car();
-// const v2 = new Truck();
+  if ("startDate" in emp) {
+    console.log("Start Date: " + emp.startDate);
+  }
+}
 
-// function useVehicle(vehicle: Vehicle) {
-//   vehicle.drive();
-//   if (vehicle instanceof Truck) {
-//     vehicle.loadCargo(1000);
-//   }
-// }
+printEmployeeInformation(e1);
+printEmployeeInformation({ name: "Aravind", startDate: new Date() });
 
-// useVehicle(v1);
-// useVehicle(v2);
+class Car {
+  drive() {
+    console.log("Driving...");
+  }
+}
 
-// interface Bird {
-//   type: "bird";
-//   flyingSpeed: number;
-// }
+class Truck {
+  drive() {
+    console.log("Driving a truck...");
+  }
 
-// interface Horse {
-//   type: "horse";
-//   runningSpeed: number;
-// }
+  loadCargo(amount: number) {
+    console.log("Loading cargo ..." + amount);
+  }
+}
 
-// type Animal = Bird | Horse;
+type Vehicle = Car | Truck;
 
-// function moveAnimal(animal: Animal) {
-//   let speed;
-//   switch (animal.type) {
-//     case "bird":
-//       speed = animal.flyingSpeed;
-//       break;
-//     case "horse":
-//       speed = animal.runningSpeed;
-//       break;
-//   }
+const v1 = new Car();
+const v2 = new Truck();
 
-//   console.log("Moving with speed " + speed);
-// }
+function useVehicle(vehicle: Vehicle) {
+  vehicle.drive();
+  if (vehicle instanceof Truck) {
+    vehicle.loadCargo(1000);
+  }
+}
 
-// moveAnimal({ type: "bird", flyingSpeed: 100 });
+useVehicle(v1);
+useVehicle(v2);
 
-// // Type Casting
-// // const userInput = <HTMLInputElement>document.getElementById("user-input")!;
-// // const userInput = document.getElementById("user-input") as HTMLInputElement;
-// const userInput = document.getElementById("user-input");
-// if (userInput) {
-//   (userInput as HTMLInputElement).value = "Hi";
-// }
+interface Bird {
+  type: "bird";
+  flyingSpeed: number;
+}
 
-// // Index Types
+interface Horse {
+  type: "horse";
+  runningSpeed: number;
+}
 
-// interface ErrorContainer {
-//   // { email : 'Not a valid email', username : 'Must start with small letter'}
-//   // id: string; -- predefined property type must be the same
-//   // id: number -- invalid property for the type string mentioned here
-//   [prop: string]: string;
-// }
+type Animal = Bird | Horse;
 
-// const errorBad: ErrorContainer = {
-//   email: "Not valid email",
-//   username: "Must start with a captial charater",
-// };
+function moveAnimal(animal: Animal) {
+  let speed;
+  switch (animal.type) {
+    case "bird":
+      speed = animal.flyingSpeed;
+      break;
+    case "horse":
+      speed = animal.runningSpeed;
+      break;
+  }
+
+  console.log("Moving with speed " + speed);
+}
+
+moveAnimal({ type: "bird", flyingSpeed: 100 });
+
+// Type Casting
+// const userInput = <HTMLInputElement>document.getElementById("user-input")!;
+// const userInput = document.getElementById("user-input") as HTMLInputElement;
+const userInput = document.getElementById("user-input");
+if (userInput) {
+  (userInput as HTMLInputElement).value = "Hi";
+}
+
+// Index Types
+
+interface ErrorContainer {
+  // { email : 'Not a valid email', username : 'Must start with small letter'}
+  // id: string; -- predefined property type must be the same
+  // id: number -- invalid property for the type string mentioned here
+  [prop: string]: string;
+}
+
+const errorBad: ErrorContainer = {
+  email: "Not valid email",
+  username: "Must start with a captial charater",
+};
