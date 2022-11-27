@@ -61,4 +61,8 @@ const userInput = document.getElementById("user-input");
 if (userInput) {
     userInput.value = "Hi";
 }
+const errorBad = {
+    email: "Not valid email",
+    username: "Must start with a captial charater",
+};
 //# sourceMappingURL=app.js.map

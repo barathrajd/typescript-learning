@@ -105,9 +105,24 @@ function moveAnimal(animal: Animal) {
 
 moveAnimal({ type: "bird", flyingSpeed: 100 });
 
+// Type Casting
 // const userInput = <HTMLInputElement>document.getElementById("user-input")!;
 // const userInput = document.getElementById("user-input") as HTMLInputElement;
 const userInput = document.getElementById("user-input");
 if (userInput) {
   (userInput as HTMLInputElement).value = "Hi";
 }
+
+// Index Types
+
+interface ErrorContainer {
+  // { email : 'Not a valid email', username : 'Must start with small letter'}
+  // id: string; -- predefined property type must be the same
+  // id: number -- invalid property for the type string mentioned here
+  [prop: string]: string;
+}
+
+const errorBad: ErrorContainer = {
+  email: "Not valid email",
+  username: "Must start with a captial charater",
+};
